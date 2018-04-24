@@ -1,7 +1,7 @@
 <?php
 
 /*
- * Plugin Name: WPOB Popover 
+ * Plugin Name: WP Popover 
  * Version: 1.0.0
  * Plugin URI:
  * Description: Add popover anywhere in yoursite. 
@@ -84,6 +84,15 @@ class WPOBPopover {
 
     public function activate() {
         flush_rewrite_rules();
+        $init_data = array(
+            'title_text_color' => '',
+            'body_text_color' => '',
+            'width' => '100%',
+            'position' => 'top', 
+            'support_html' => 'true'
+        ); 
+        $init_data = serialize($init_data) ; 
+        update_option($this->setting_options_name, $init_data);
     }
 
     public function deactivate() {
@@ -228,7 +237,7 @@ class WPOBPopover {
             $title = $title;
             $content = $content;
         }
-
+        echo $this->global_setting['position'] ; 
         $data = "<span class='wpobp' data-placement='{$this->global_setting['position']}' data-html='{$this->global_setting['support_html']}' data-toggle='wpob-popover'  title='{$title}' data-content='{$content}'> {$title}</span>";
         return $data;
     }
@@ -239,30 +248,20 @@ class WPOBPopover {
             /* Popover */
             .wpob-popover {
                 border: 1px solid #ccc;
+                max-width:<?php echo $this->global_setting['width']?>;
             }
             /* Popover Header */
             .wpob-popover .popover-header {
-
+                color: <?php echo $this->global_setting['title_text_color'] ?>;
                 
 
             }
             /* Popover Body */
             .wpob-popover .popover-body {
-                
-                 
-
+                 color: <?php echo $this->global_setting['body_text_color'] ?> ;
             }
             /* Popover Arrow */
-             .wpob-popover .arrow{
-                 z-index: 9999;
-             }
-            .wpob-popover[x-placement^=<?php echo $this->global_setting['position']?>] .arrow::before, .wpob-popover .arrow::before{
-                 
-            }
-
-            .bs-popover-auto[x-placement^=<?php echo $this->global_setting['position']?>] .arrow::after, .wpob-popover .arrow::after{
-                 
-            }
+             
         </style> 
         <?php
 

@@ -6,15 +6,19 @@
  
             <div class="form-group">
                 <label> Popover Title Text color </label>
-                <input type="text" data-default-color="" class="color-field form-control " name="title_text_color" value="<?php echo $this->global_setting['bg_color'] ?>" />
+                <input type="text" data-default-color="" class="color-field form-control " name="title_text_color" value="<?php echo $this->global_setting['title_text_color'] ?>" />
             </div>
  
 
             <div class="form-group">
                 <label> Popover Body Text  color </label>
-                <input type="text" data-default-color="" class="color-field form-control " name="body_text_color" value="<?php echo $this->global_setting['bg_color'] ?>" />
+                <input type="text" data-default-color="" class="color-field form-control " name="body_text_color" value="<?php echo $this->global_setting['body_text_color'] ?>" />
             </div>
- 
+            
+              <div class="form-group">
+                <label> Popover Max width (px or %)  </label>
+                <input type="text" name="width" class="form-control " value="<?php echo $this->global_setting['width']?>" />
+            </div>
 
             <div class="form-group">
                 <label> Popover position   </label>
