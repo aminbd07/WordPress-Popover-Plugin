@@ -88,6 +88,7 @@ class WPOBPopover {
             'title_text_color' => '',
             'body_text_color' => '',
             'width' => '100%',
+            'height' => '500px',
             'position' => 'top', 
             'support_html' => 'true'
         ); 
@@ -104,7 +105,7 @@ class WPOBPopover {
     }
 
     function wpobp_register_post_type() {
-        $name = "WPOB Popover";
+        $name = "WP Popover";
         $labels = array(
             'name' => __($name, 'post type general name', $this->text_domain),
             'singular_name' => __($name, 'post type singular name', $this->text_domain),
@@ -236,8 +237,8 @@ class WPOBPopover {
         } else if ($title != '') {
             $title = $title;
             $content = $content;
-        }
-        echo $this->global_setting['position'] ; 
+        } 
+        
         $data = "<span class='wpobp' data-placement='{$this->global_setting['position']}' data-html='{$this->global_setting['support_html']}' data-toggle='wpob-popover'  title='{$title}' data-content='{$content}'> {$title}</span>";
         return $data;
     }
@@ -249,6 +250,8 @@ class WPOBPopover {
             .wpob-popover {
                 border: 1px solid #ccc;
                 max-width:<?php echo $this->global_setting['width']?>;
+                max-height:<?php echo $this->global_setting['height']?>;
+                
             }
             /* Popover Header */
             .wpob-popover .popover-header {
@@ -259,6 +262,7 @@ class WPOBPopover {
             /* Popover Body */
             .wpob-popover .popover-body {
                  color: <?php echo $this->global_setting['body_text_color'] ?> ;
+                  
             }
             /* Popover Arrow */
              

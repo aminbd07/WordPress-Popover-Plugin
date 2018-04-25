@@ -19,6 +19,10 @@
                 <label> Popover Max width (px or %)  </label>
                 <input type="text" name="width" class="form-control " value="<?php echo $this->global_setting['width']?>" />
             </div>
+              <div class="form-group">
+                <label> Popover Max height (px or %)  </label>
+                <input type="text" name="height" class="form-control " value="<?php echo $this->global_setting['height']?>" />
+            </div>
 
             <div class="form-group">
                 <label> Popover position   </label>
